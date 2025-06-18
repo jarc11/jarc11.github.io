@@ -1,5 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head></head>
-    <body></body>
+    <script src="https://sandbox.secure.checkout.visa.com/checkout-widget/resources/js/integration/v2/sdk.js?dpaId=EJM1Q6MIFDYLWPDZXRA921x7z1uFyv8mYxfKG8fQARMLd16Nk&locale=en_GB&cardBrands=visa,mastercard"></script>
+        <script>
+            var Vsb = window.VSDK;
+
+            const dpaTransactionOptions = {
+                transactionAmount: {
+                    transactionAmount: "200.00",
+                    transactionCurrency: "GBP"
+                },
+                dpaBillingPreference: "NONE",
+                dpaAcceptedBillingCountries: [
+                    "US","GB","CA"
+                ],
+                consumerNationalIdentifierRequested: false,
+                merchantCatergoryCode: "4829",
+                merchantCountryCode: "GB",
+                payloadTypeIndicator: "FULL",
+                paymentOptions: [
+                    {
+                        dpaDynamicDataTtlMinutes: 2,
+                        dynamicDataType: "CARD_APPLICATION_CRYPTOGRAM_LONG_FORM"
+                    }
+                ],
+                dpaLocale: "en_GB"
+            }
+
+            Vsb.initialize({
+                dpaTransactionOptions: dpaTransactionOptions
+            })
+
+        </script>
+    <body>
+        <title>UCTP Example</title>
+    </body>
 </html>
+
+ <!-- EJM1Q6MIFDYLWPDZXRA921x7z1uFyv8mYxfKG8fQARMLd16Nk -->
